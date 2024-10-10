@@ -29,3 +29,14 @@ pom.xml - 자바, 스프링프레임워크 버전 설정 => Maven / update Proje
 properties / java build path / libraries / Classpath / add Library / Server runtime / apache tomcat 추가
 
 project Facets / dynamic web Module 3.1
+
+* 테이블 생성
+CREATE TABLE `tbl_board` (
+  `bno` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) NOT NULL,
+  `content` text,
+  `writer` varchar(50) NOT NULL,
+  `viewcnt` int DEFAULT '0',
+  `regdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`bno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
