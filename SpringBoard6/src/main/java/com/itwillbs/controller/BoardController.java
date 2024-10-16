@@ -1,5 +1,7 @@
 package com.itwillbs.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -51,6 +53,17 @@ public class BoardController {
 		return "redirect:/board/listAll";
 	}
 	
-	// 게시판 리스트
+	// 게시판 리스트 - GET
+	@RequestMapping(value = "/listAll",method = RequestMethod.GET)
+	public void listAllGET() throws Exception{
+		logger.debug(" /listAll -> listAllGET() 호출 ");
+		
+		// 서비스 -> DAO 메서드 호출 (출력할 정보 가져오기)
+		List<BoardVO> boardList = bService.listAll();
+		logger.debug(" "+boardList);
+		// Model 객체를 사용해서 정보를 저장
+		
+		// 연결된 뷰페이지에서 출력
+	}
 	
 } // controller
