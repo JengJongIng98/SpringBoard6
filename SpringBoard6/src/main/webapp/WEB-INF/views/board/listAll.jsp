@@ -5,9 +5,10 @@
 
 <h1>/board/listAll.jsp</h1>
 	
-	<%-- ${boardList } <hr>
-	
-	${requestScope } --%>
+<%-- ${boardList } <hr>
+
+${requestScope } --%>
+result : ${result }
 
 <div class="box">
 	<div class="box-header with-border">
@@ -46,5 +47,20 @@
 		</ul>
 	</div>
 </div>
+
+<script type="text/javascript">
+	/* JSP페이지의 실행순서
+	   JSP(JAVA) -> JSTL/EL -> HTML -> JavaScript / JQuery
+	*/
+	/* JS에서 el표현식의 데이터를 사용가능 */
+	//var result = ${result}; => var result = INSERTOK;
+	var result = '${result}';
+	
+	if(result == "INSERTOK"){
+		alert(" 정상적으로 글쓰기 동작 완료! ");
+	}
+	
+</script>
+
 
 <%@ include file="../include/footer.jsp" %>
